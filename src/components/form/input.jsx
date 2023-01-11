@@ -22,7 +22,7 @@ const re = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].
 
 export default function Input({
   register = () => {},
-  label = 'default label',
+  label,
   name = 'default name',
   errorMessage,
   isError,
@@ -50,7 +50,9 @@ export default function Input({
   return (
     <React.Fragment>
       <label>
-        {label} {required && <span className='text-red-400'>&nbsp;*</span>}
+        {
+          label || 'default label'
+        }{required && <span className='text-red-400'>&nbsp;*</span>}
         <input
           data-testid={__test__}
           {
@@ -60,7 +62,7 @@ export default function Input({
             })
           }
           className={clsx(
-            'w-full bg-slate-300 px-2 py-1.5 mt-1 rounded dark:text-gray-100 dark:bg-gray-700',
+            'w-full bg-slate-100 focus:bg-slate-200 px-2 py-1.5 mt-1 rounded dark:text-gray-100 dark:bg-slate-800 dark:focus:bg-slate-700',
             disabled && 'opacity-70',
           )}
           defaultValue={defaultValue}

@@ -4,9 +4,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Sidebar from 'components/block/sidebar'
-import Input from 'components/form/input'
-import { useForm } from 'react-hook-form'
-import CodeBlock from 'components/common/code-block'
+import SimpleInput from '../../playground/input/simple-input'
 
 const Header = dynamic(
   () => import('components/block/header'),
@@ -113,8 +111,6 @@ const property = [
 ]
 
 export default function PlaygroundLayout() {
-  const { register, formState: { errors } } = useForm()
-
   return (
     <div className='flex'>
       <Sidebar />
@@ -126,40 +122,15 @@ export default function PlaygroundLayout() {
           sd
         </header>
         <main className='p-8'>
-          <h1 className='text-3xl font-bold'>Input</h1>
-          <code>Komponen untuk menghandle user input dan untuk mengumpulkan data.</code>
-          <div className='mt-8 grid grid-cols-2 gap-4'>
-            {
-              Array.from({ length: 6 }).map((_, i) => (
-                <div key={i}>
-                  <code className='block mb-4 text-xs'>
-                    Untuk dapat menggunakan komponen <strong className='text-primary'>Input</strong> dibutuhkan minimal 2 props.
-                    Yaitu <strong className='text-primary'>register</strong> dan <strong className='text-primary'>name</strong>.
-                    Dimana props tersebut dibutuhkan untuk registrasi di <i>react-hook-form.</i>
-                  </code>
-                  <Input
-                    name='input1'
-                    register={register}
-                  />
-                  <code className='mt-4 text-xs'>
-                    Simple input with register & name props
-                  </code>
-                  <CodeBlock
-                    code={`const input = () => (
-  <Input 
-    name='input1' 
-    register={register} 
-  />
-)`}
-                  />
-                </div>
-              ))
-            }
+          <h1 className='text-3xl font-bold mb-2'>Input</h1>
+          <code>Component for handling user input and collect data.</code>
+          <div className='tm-base border rounded p-4 mt-4'>
+            <SimpleInput />
           </div>
           <h3 className='mt-8 font-bold'>Component Props</h3>
           <table className='font-normal text-xs w-[70%] mt-2'>
             <thead className='text-left border border-l-0 border-r-0 tm-base'>
-              <tr>
+              <tr className='text-sky-400'>
                 <th className='py-4 px-1'>
                   <code>Props</code>
                 </th>
@@ -168,9 +139,6 @@ export default function PlaygroundLayout() {
                 </th>
                 <th>
                   <code>Type</code>
-                </th>
-                <th>
-                  <code>Required</code>
                 </th>
               </tr>
             </thead>
@@ -186,11 +154,6 @@ export default function PlaygroundLayout() {
                     </td>
                     <td>
                       <code className='text-primary'>{item.type}</code>
-                    </td>
-                    <td>
-                      <code>
-                        {item.required}
-                      </code>
                     </td>
                   </tr>
                 ))
