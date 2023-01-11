@@ -7,7 +7,7 @@
 }
 
 .trans-g {
-  @apply transition-all duration-500;
+  @apply transition-all duration-300;
 }
 
 .shade {

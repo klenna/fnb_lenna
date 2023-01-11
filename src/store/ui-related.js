@@ -2,6 +2,12 @@ import create from 'zustand'
 
 const useUiRelated = create(
   (set, get) => ({
+    theme: 'dark',
+    $setTheme: (data) => set(
+      () => ({
+        theme: data,
+      }),
+    ),
     isChatPanelOpen: false,
     toggleChatPanel: () => set(
       (state) => {

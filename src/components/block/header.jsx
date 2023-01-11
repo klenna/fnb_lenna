@@ -33,14 +33,15 @@ export default function Header() {
     <header className='w-full h-[75px] sticky left-0 top-0 drop-shadow-sm tm-base border-b z-50'>
       <div className='max-w-screen-xl mx-auto h-full items-center flex justify-between px-4 2xl:px-0 trans-g'>
         <div className='flex items-center gap-2'>
-          <Image
+          {/* <Image
             alt='logo'
             height={70}
             priority
             src='/images/lenna.svg'
             width={45}
           />
-          <h6 className='text-xl'>Lenna</h6>
+          <h6 className='text-xl'>Lenna</h6> */}
+          <h6 className='text-xl'>Siners</h6>
         </div>
         <ul className='w-[55%] lg:flex justify-between hidden font-bold'>
           {menu.map((item, index) => (

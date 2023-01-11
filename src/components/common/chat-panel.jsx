@@ -9,7 +9,7 @@ import ChatHead from './chat-head'
 
 export default function ChatPanel() {
   const {
-    isSignProcess, toggleBotLoading, toggleOutletPanelOpen, isOutletOpen,
+    isSignProcess, toggleBotLoading, toggleOutletPanel, isOutletOpen,
   } = useUiRelated((state) => state)
   const { appendChat, chats } = useChat((state) => state)
 
@@ -33,9 +33,9 @@ export default function ChatPanel() {
 
   useEffect(() => {
     if (chats[0]?.type === 'outlet-popup') {
-      toggleOutletPanelOpen(true)
+      toggleOutletPanel(true)
     }
-  }, [chats, toggleOutletPanelOpen])
+  }, [chats, toggleOutletPanel])
 
   useEffect(() => {
     debouncedInitialBot()
