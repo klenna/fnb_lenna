@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import Sidebar from 'components/block/sidebar'
+import OnfocusInput from 'playground/input/onfocus-input'
 import SimpleInput from '../../playground/input/simple-input'
 
 const Header = dynamic(
@@ -126,6 +127,9 @@ export default function PlaygroundLayout() {
           <code>Component for handling user input and collect data.</code>
           <div className='tm-base border rounded p-4 mt-4'>
             <SimpleInput />
+          </div>
+          <div className='tm-base border rounded p-4 mt-4'>
+            <OnfocusInput />
           </div>
           <h3 className='mt-8 font-bold'>Component Props</h3>
           <table className='font-normal text-xs w-[70%] mt-2'>
